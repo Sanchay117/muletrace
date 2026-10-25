@@ -1,0 +1,10 @@
+{
+  "case_id": "CASE-01",
+  "scam_id": "SCAM-9104",
+  "title": "Retiree $120K RTP Fan-Out + Payroll Trap + Hop-6 Convergence",
+  "victim_name": "Margaret Chen (Age 71, Retired Teacher)",
+  "victim_account": "ACCT-VIC-101",
+  "stolen_usd": 120000,
+  "exit_deadline_sec": 240,
+  "operator_prompt": "Trace stolen $120,000 RTP wire SCAM-9104 from ACCT-VIC-101 across split branches, prune any innocent payroll bystander accounts, and issue a surgical freeze before the 240-second crypto settlement window closes."
+}

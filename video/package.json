@@ -1,0 +1,11 @@
+{
+  "name": "muletrace-motion-video",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "sfx": "tsx scripts/sfx.ts",
+    "tts": "tsx scripts/tts.ts",
+    "master": "tsx scripts/master.ts"
+  }
+}

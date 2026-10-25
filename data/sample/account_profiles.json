@@ -1,0 +1,17 @@
+[
+  {"account_id": "ACCT-PAY-402", "case_id": "CASE-01", "holder_name": "Bayview Harbor Clinic Payroll", "kyc_status": "VERIFIED_EMPLOYER", "account_age_days": 2840, "legit_pool_usd": 294000, "protected_bystanders": 42, "bystander_label": "42 nurses biweekly payroll checks", "is_innocent_bystander": true},
+  {"account_id": "ACCT-HUB-889", "case_id": "CASE-01", "holder_name": "Northstar Shell LLC", "kyc_status": "SYNTHETIC_SHELL_9D", "account_age_days": 9, "legit_pool_usd": 0, "protected_bystanders": 0, "bystander_label": "synthetic mule aggregator", "is_innocent_bystander": false},
+
+  {"account_id": "ACCT-SAAS-310", "case_id": "CASE-02", "holder_name": "CloudScale Hosting Billing", "kyc_status": "VERIFIED_MERCHANT", "account_age_days": 3400, "legit_pool_usd": 810000, "protected_bystanders": 65, "bystander_label": "65 enterprise cloud billing tenants", "is_innocent_bystander": true},
+  {"account_id": "ACCT-UTIL-412", "case_id": "CASE-02", "holder_name": "Metro Grid Municipal Power", "kyc_status": "VERIFIED_UTILITY", "account_age_days": 5100, "legit_pool_usd": 1250000, "protected_bystanders": 120, "bystander_label": "120 commercial utility autopay accounts", "is_innocent_bystander": true},
+  {"account_id": "ACCT-HUB-920", "case_id": "CASE-02", "holder_name": "Vanguard Trade Desk Ltd", "kyc_status": "SYNTHETIC_SHELL_6D", "account_age_days": 6, "legit_pool_usd": 0, "protected_bystanders": 0, "bystander_label": "shell peel aggregator", "is_innocent_bystander": false},
+
+  {"account_id": "ACCT-BAKERY-510", "case_id": "CASE-03", "holder_name": "Hearthstone Wholesale Bakery", "kyc_status": "VERIFIED_SMB", "account_age_days": 1920, "legit_pool_usd": 74000, "protected_bystanders": 18, "bystander_label": "18 bakery supplier & baker wages", "is_innocent_bystander": true},
+  {"account_id": "ACCT-HUB-892", "case_id": "CASE-03", "holder_name": "Baltic Transit Shell Corp", "kyc_status": "SYNTHETIC_SHELL_4D", "account_age_days": 4, "legit_pool_usd": 0, "protected_bystanders": 0, "bystander_label": "Ring-77 repeat hub", "is_innocent_bystander": false},
+
+  {"account_id": "ACCT-DENTAL-811", "case_id": "CASE-04", "holder_name": "Oakridge Family Dental", "kyc_status": "VERIFIED_CLINIC", "account_age_days": 2210, "legit_pool_usd": 92000, "protected_bystanders": 14, "bystander_label": "14 clinic staff accounts", "is_innocent_bystander": true},
+  {"account_id": "ACCT-ESCROW-610", "case_id": "CASE-04", "holder_name": "Pacific Coast Licensed Title Escrow", "kyc_status": "LICENSED_FIDUCIARY_OMNIBUS", "account_age_days": 4380, "legit_pool_usd": 1420000, "protected_bystanders": 4, "bystander_label": "4 family home-closing escrow wires", "is_innocent_bystander": false},
+
+  {"account_id": "ACCT-GROCERY-901", "case_id": "CASE-05", "holder_name": "SunValley Fresh Market POS", "kyc_status": "VERIFIED_RETAIL_POS", "account_age_days": 3120, "legit_pool_usd": 410000, "protected_bystanders": 180, "bystander_label": "180 retail merchant POS settlements", "is_innocent_bystander": true},
+  {"account_id": "ACCT-HUB-950", "case_id": "CASE-05", "account_id_alt": "HUB-950", "holder_name": "Apex Voucher Relay LLC", "kyc_status": "SYNTHETIC_SHELL_7D", "account_age_days": 7, "legit_pool_usd": 0, "protected_bystanders": 0, "bystander_label": "dual-rail bridge shell", "is_innocent_bystander": false}
+]

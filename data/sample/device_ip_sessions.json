@@ -1,0 +1,23 @@
+[
+  {"session_id": "SES-9104-1", "case_id": "CASE-01", "account_id": "ACCT-MULE-201", "emulator_hash": "EMU-NOX-77", "asn": "AS209854", "ip_subnet": "185.220.101.14", "split_cadence_sec": 19, "headless_script": true},
+  {"session_id": "SES-9104-2", "case_id": "CASE-01", "account_id": "ACCT-MULE-301", "emulator_hash": "EMU-NOX-77", "asn": "AS209854", "ip_subnet": "185.220.101.14", "split_cadence_sec": 19, "headless_script": true},
+  {"session_id": "SES-9104-3", "case_id": "CASE-01", "account_id": "ACCT-PAY-402", "emulator_hash": "NONE", "asn": "AS7922_COMCAST_BIZ", "ip_subnet": "73.162.44.10", "split_cadence_sec": 0, "headless_script": false},
+  {"session_id": "SES-9104-4", "case_id": "CASE-01", "account_id": "ACCT-MULE-303", "emulator_hash": "EMU-NOX-77", "asn": "AS209854", "ip_subnet": "185.220.101.19", "split_cadence_sec": 19, "headless_script": true},
+  {"session_id": "SES-9104-5", "case_id": "CASE-01", "account_id": "ACCT-HUB-889", "emulator_hash": "EMU-NOX-77", "asn": "AS209854", "ip_subnet": "185.220.101.22", "split_cadence_sec": 19, "headless_script": true},
+
+  {"session_id": "SES-9218-1", "case_id": "CASE-02", "account_id": "ACCT-PEEL-101", "emulator_hash": "EMU-LDPLAY-19", "asn": "AS9009_M247", "ip_subnet": "194.36.110.8", "split_cadence_sec": 24, "headless_script": true},
+  {"session_id": "SES-9218-2", "case_id": "CASE-02", "account_id": "ACCT-SAAS-310", "emulator_hash": "NONE", "asn": "AS16509_AWS_CORP", "ip_subnet": "52.94.12.4", "split_cadence_sec": 0, "headless_script": false},
+  {"session_id": "SES-9218-3", "case_id": "CASE-02", "account_id": "ACCT-UTIL-412", "emulator_hash": "NONE", "asn": "AS7018_ATT_MUN", "ip_subnet": "12.88.14.2", "split_cadence_sec": 0, "headless_script": false},
+  {"session_id": "SES-9218-4", "case_id": "CASE-02", "account_id": "ACCT-HUB-920", "emulator_hash": "EMU-LDPLAY-19", "asn": "AS9009_M247", "ip_subnet": "194.36.110.12", "split_cadence_sec": 24, "headless_script": true},
+
+  {"session_id": "SES-9305-1", "case_id": "CASE-03", "account_id": "ACCT-MULE-601", "emulator_hash": "EMU-NOX-77", "asn": "AS209854", "ip_subnet": "185.220.101.31", "split_cadence_sec": 19, "headless_script": true},
+  {"session_id": "SES-9305-2", "case_id": "CASE-03", "account_id": "ACCT-BAKERY-510", "emulator_hash": "NONE", "asn": "AS20115_CHARTER", "ip_subnet": "68.114.20.9", "split_cadence_sec": 0, "headless_script": false},
+  {"session_id": "SES-9305-3", "case_id": "CASE-03", "account_id": "ACCT-HUB-892", "emulator_hash": "EMU-NOX-77", "asn": "AS209854", "ip_subnet": "185.220.101.22", "split_cadence_sec": 19, "headless_script": true},
+
+  {"session_id": "SES-9412-1", "case_id": "CASE-04", "account_id": "ACCT-MULE-701", "emulator_hash": "EMU-GENY-08", "asn": "AS14061_DO", "ip_subnet": "159.89.40.11", "split_cadence_sec": 33, "headless_script": true},
+  {"session_id": "SES-9412-2", "case_id": "CASE-04", "account_id": "ACCT-ESCROW-610", "emulator_hash": "NONE", "asn": "AS7922_COMCAST_BIZ", "ip_subnet": "73.41.90.15", "split_cadence_sec": 0, "headless_script": false},
+
+  {"session_id": "SES-9520-1", "case_id": "CASE-05", "account_id": "ACCT-MULE-801", "emulator_hash": "EMU-MEMU-55", "asn": "AS24940_HETZNER", "ip_subnet": "95.216.18.4", "split_cadence_sec": 21, "headless_script": true},
+  {"session_id": "SES-9520-2", "case_id": "CASE-05", "account_id": "ACCT-GROCERY-901", "emulator_hash": "NONE", "asn": "AS701_VERIZON_POS", "ip_subnet": "96.240.12.8", "split_cadence_sec": 0, "headless_script": false},
+  {"session_id": "SES-9520-3", "case_id": "CASE-05", "account_id": "ACCT-HUB-950", "emulator_hash": "EMU-MEMU-55", "asn": "AS24940_HETZNER", "ip_subnet": "95.216.18.9", "split_cadence_sec": 21, "headless_script": true}
+]

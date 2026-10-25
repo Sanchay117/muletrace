@@ -1,0 +1,23 @@
+---
+description: MuleTrace Track 3 Reasoning Architecture contracts for Zetaris SQL, Meterless Engines, and Nightshift Nemotron lanes
+globs: ["agent/**/*.py", "tests/**/*.py", "scripts/**/*.sql", "web/**/*"]
+alwaysApply: true
+---
+
+# MuleTrace Cursor Agent Rules (.cursor/rules/muletrace.mdc)
+
+1. **Zetaris Single-Statement Contract (`agent/tools_zetaris.py`):**
+   - Never batch semicolon-separated SQL statements in `POST /api/v1.0/sql-editor/sqls/run`.
+   - Always send `Authorization: Bearer <ZETARIS_API_KEY>`, `X-Org-ID: 1`, and a fresh UUID4 `X-Request-ID`.
+   - Maintain 100% parity between `scripts/register_zetaris_sources.sql` and `SAMPLE_MODE=true` SQLite tables over `data/sample/`.
+
+2. **Track 3 Reasoning Architecture Invariants (`agent/engines/` + `agent/orchestrator.py`):**
+   - Never build a linear `A -> B -> C` prompt chain.
+   - Every trace must execute speculative fan-out hop exploration, explicit innocent-branch pruning/backtracking, FIFO taint-haircut conservation in `World Model`, bounded `O(1)` hop capsules in `Markovian` (`<220` tokens per hop), and cross-session ring recall in `H-MEM`.
+
+3. **Meterless Nightshift + NVIDIA Nemotron Attribution (`agent/llm.py`):**
+   - Never place raw NVIDIA API keys in `.env` or source files. Connect to `METERLESS_BASE_URL` (`http://127.0.0.1:8088/v1`) with `meterless-app: muletrace-agent` and `meterless-scope: user`.
+   - Pin explicit Nemotron models: `nvidia/nemotron-3.5-lightning-30b-a3b` (Lane 1 Fast Hop Scouts) and `nvidia/nemotron-3.5-super-vl-120b-a12b` (Lane 2 Deep Pruning & Freeze Arbiter), recording a `ModelReceipt` per step.
+
+4. **Copywriting Hygiene:**
+   - Do not use em-dashes in strings, comments, UI labels, slides, or docs. Use colons, commas, parentheses, or hyphens.

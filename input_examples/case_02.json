@@ -1,0 +1,10 @@
+{
+  "case_id": "CASE-02",
+  "scam_id": "SCAM-9218",
+  "title": "CFO $240K 7-Hop Automated Peel-Chain to OTC Desk",
+  "victim_name": "Redwood BioLabs Treasury",
+  "victim_account": "ACCT-VIC-204",
+  "stolen_usd": 240000,
+  "exit_deadline_sec": 240,
+  "operator_prompt": "Chase hijacked $240,000 vendor wire SCAM-9218 across deep 7-hop automated peel chain without blowing out prompt context, safeguard legitimate SaaS/utility billers, and freeze the OTC stablecoin exit."
+}

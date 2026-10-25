@@ -1,0 +1,10 @@
+{
+  "case_id": "CASE-04",
+  "scam_id": "SCAM-9412",
+  "title": "$64K Co-Mingled Title Escrow Boundary (Ring-Fenced Sub-Ledger Hold)",
+  "victim_name": "Elena & Marcus Vance (First-Time Homebuyers)",
+  "victim_account": "ACCT-VIC-415",
+  "stolen_usd": 64000,
+  "exit_deadline_sec": 240,
+  "operator_prompt": "Trace $64,000 closing wire SCAM-9412 entering licensed omnibus title escrow ACCT-ESCROW-610 and determine whether to hard-freeze or place a ring-fenced sub-ledger hold."
+}

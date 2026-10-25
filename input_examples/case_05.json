@@ -1,0 +1,10 @@
+{
+  "case_id": "CASE-05",
+  "scam_id": "SCAM-9520",
+  "title": "$175K Cross-Rail Gift-Card API + TRON Stablecoin Bridge",
+  "victim_name": "Harborview Dental Group",
+  "victim_account": "ACCT-VIC-522",
+  "stolen_usd": 175000,
+  "exit_deadline_sec": 240,
+  "operator_prompt": "Trace $175,000 treasury sweep SCAM-9520 across split RTP and FedNow rails, prune innocent retail grocery POS settlements, and intercept converged TRON bridge liquidity."
+}

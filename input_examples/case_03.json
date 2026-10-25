@@ -1,0 +1,10 @@
+{
+  "case_id": "CASE-03",
+  "scam_id": "SCAM-9305",
+  "title": "Repeat Ring-77 Hit ($85K) Solved in 2 Hops via H-MEM Shortcut",
+  "victim_name": "Arthur Delgado (Age 68, Veteran Pension)",
+  "victim_account": "ACCT-VIC-309",
+  "stolen_usd": 85000,
+  "exit_deadline_sec": 240,
+  "operator_prompt": "Investigate $85,000 pension wire scam SCAM-9305 using H-MEM ring signatures to shortcut intermediate mule hops and freeze Ring-77's exit ramp in under 60 seconds."
+}

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>MuleTrace Pitch Deck</title>
+<style>
+  @page { size: 1920px 1080px; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Inter", sans-serif; background: #070B12; color: #F8FAFC; }
+  .slide {
+    width: 1920px; height: 1080px; padding: 84px 104px;
+    background: radial-gradient(circle at 88% 14%, rgba(6,182,212,0.16), transparent 42%), #070B12;
+    display: flex; flex-direction: column; justify-content: space-between;
+    page-break-after: always; border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .top, .foot { display: flex; justify-content: space-between; align-items: center; font-family: monospace; font-size: 20px; color: #94A3B8; }
+  .tag { background: #06B6D4; color: #041019; font-weight: 900; padding: 10px 22px; border-radius: 999px; }
+  h1 { font-size: 68px; font-weight: 900; line-height: 1.08; letter-spacing: -0.03em; max-width: 1560px; }
+  .lead { font-size: 30px; color: #CBD5E1; margin-top: 24px; line-height: 1.4; max-width: 1500px; }
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 56px; }
+  .card { background: #111A2E; border: 2px solid rgba(6,182,212,0.32); border-radius: 28px; padding: 38px; }
+  .card h3 { font-size: 28px; font-weight: 800; color: #67E8F9; margin-bottom: 14px; }
+  .card p { font-size: 23px; color: #E2E8F0; line-height: 1.45; }
+</style>
+</head>
+<body>
+
+            <section class="slide">
+              <div class="top">
+                <span class="tag">01 // PROBLEM</span>
+                <span class="meta">OPEN AGENT HACKATHON 2026 · TRACK 3: REASONING ARCHITECTURE</span>
+              </div>
+              <div class="mid">
+                <h1>$10B+ Stolen on Instant Rails Because Linear Bots Lose the Trail</h1>
+                <p class="lead">When scammers steal $120,000 via RTP or FedNow, they split funds across 6 to 8 mule hops, decoy payroll pools, and crypto bridges inside 240 seconds.</p>
+                <div class="cards"><div class="card"><h3>1-Hop Fraud Rules Blind at Hop 2+</h3><p>Legacy bank rules inspect Victim -> Hop 1 only and miss split peel chains.</p></div><div class="card"><h3>Naive Single-Prompt LLMs Choke & Over-Freeze</h3><p>Dumping 7 hops of ledger JSON triggers 12,500+ token bloat and freezes 42 nurses' innocent paychecks.</p></div><div class="card"><h3>Irreversible 240-Second Finality Clock</h3><p>Once funds settle on an offshore USDT bridge, recovery drops to 0%.</p></div></div>
+              </div>
+              <div class="foot">
+                <span><b>MuleTrace</b> · Team Push And Pray</span>
+                <span>Zetaris + Cursor + Meterless Engines + NVIDIA Nemotron</span>
+              </div>
+            </section>
+            
+            <section class="slide">
+              <div class="top">
+                <span class="tag">02 // SOLUTION: MULETRACE</span>
+                <span class="meta">OPEN AGENT HACKATHON 2026 · TRACK 3: REASONING ARCHITECTURE</span>
+              </div>
+              <div class="mid">
+                <h1>A Speculative Branch-and-Backtrack Reasoning Architecture</h1>
+                <p class="lead">MuleTrace chases split money streams in parallel, prunes innocent bystander accounts, keeps per-hop context O(1), and learns ring shortcuts across runs.</p>
+                <div class="cards"><div class="card"><h3>Parallel Hop Scouts (Nemotron 30B)</h3><p>Explores fan-out RTP/FedNow branches across Zetaris SQL tables in milliseconds.</p></div><div class="card"><h3>Innocence Backtracking Critic (Nemotron 120B)</h3><p>Audits KYC + payroll pools, prunes innocent branches, and reallocates hop budget.</p></div><div class="card"><h3>Convergence & Surgical Freeze</h3><p>Catches split streams reuniting at Hop 6 with 94s left and 0 false freezes.</p></div></div>
+              </div>
+              <div class="foot">
+                <span><b>MuleTrace</b> · Team Push And Pray</span>
+                <span>Zetaris + Cursor + Meterless Engines + NVIDIA Nemotron</span>
+              </div>
+            </section>
+            
+            <section class="slide">
+              <div class="top">
+                <span class="tag">03 // LAYER 01: ZETARIS DATA</span>
+                <span class="meta">OPEN AGENT HACKATHON 2026 · TRACK 3: REASONING ARCHITECTURE</span>
+              </div>
+              <div class="mid">
+                <h1>Governed Single-Statement SQL Across 4 Financial & Cyber Schemas</h1>
+                <p class="lead">Every hop decision traces to an auditable Zetaris REST SQL query (POST /api/v1.0/sql-editor/sqls/run) with X-Org-ID: 1 and fresh UUID4 X-Request-IDs.</p>
+                <div class="cards"><div class="card"><h3>zetaris_wire.rtp_transfer_ledger</h3><p>Multi-hop RTP, FedNow, and Same-Day ACH split and convergence edges.</p></div><div class="card"><h3>zetaris_cyber.device_ip_sessions</h3><p>Headless Android emulator hashes (EMU-NOX-77), ASNs, and 19s bot split cadences.</p></div><div class="card"><h3>zetaris_kyc + zetaris_crypto</h3><p>Verified employer payroll safeguards and live 240s crypto settlement countdowns.</p></div></div>
+              </div>
+              <div class="foot">
+                <span><b>MuleTrace</b> · Team Push And Pray</span>
+                <span>Zetaris + Cursor + Meterless Engines + NVIDIA Nemotron</span>
+              </div>
+            </section>
+            
+            <section class="slide">
+              <div class="top">
+                <span class="tag">04 // LAYER 02: 4 METERLESS ENGINES</span>
+                <span class="meta">OPEN AGENT HACKATHON 2026 · TRACK 3: REASONING ARCHITECTURE</span>
+              </div>
+              <div class="mid">
+                <h1>Why MuleTrace's Architecture Beats Linear Prompt Chains</h1>
+                <p class="lead">All four Meterless Engines work together inside a unified non-linear loop built in Cursor with Composer and Grok.</p>
+                <div class="cards"><div class="card"><h3>Scout Intent + World Model (Optimistic Lock)</h3><p>Scores 240s exit urgency and tracks live FIFO taint conservation across parallel scouts.</p></div><div class="card"><h3>Markovian O(1) Hop Capsules (-92.2% Tokens)</h3><p>Compresses 12,513 cumulative raw tokens down to 909 bounded capsule tokens.</p></div><div class="card"><h3>H-MEM Ring Fingerprint Shortcuts (3.1x Faster)</h3><p>Matches repeat emulator + ASN cadence to jump straight from Hop 1 to Exit Hub in 48s.</p></div></div>
+              </div>
+              <div class="foot">
+                <span><b>MuleTrace</b> · Team Push And Pray</span>
+                <span>Zetaris + Cursor + Meterless Engines + NVIDIA Nemotron</span>
+              </div>
+            </section>
+            
+            <section class="slide">
+              <div class="top">
+                <span class="tag">05 // LAYER 03: NIGHTSHIFT + NEMOTRON</span>
+                <span class="meta">OPEN AGENT HACKATHON 2026 · TRACK 3: REASONING ARCHITECTURE</span>
+              </div>
+              <div class="mid">
+                <h1>Right-Sized Dual-Lane Compute via Meterless Nightshift</h1>
+                <p class="lead">Connected to Meterless Nightshift (http://127.0.0.1:8088/v1) with zero raw API keys in code and cryptographic ModelReceipts per step.</p>
+                <div class="cards"><div class="card"><h3>Lane 1: nvidia/nemotron-3.5-lightning-30b-a3b</h3><p>Handles Steps 1, 2, and 4: typology routing, parallel fan-out SQL, and deep convergence chase.</p></div><div class="card"><h3>Lane 2: nvidia/nemotron-3.5-super-vl-120b-a12b</h3><p>Handles Steps 3, 5, and 6: bystander pruning, 80% escrow gate, and FinCEN freeze synthesis.</p></div><div class="card"><h3>Calibrated Fiduciary Gate (CASE-04)</h3><p>At 64% confidence inside a $1.42M title escrow pool, issues a narrow $64K sub-ledger hold.</p></div></div>
+              </div>
+              <div class="foot">
+                <span><b>MuleTrace</b> · Team Push And Pray</span>
+                <span>Zetaris + Cursor + Meterless Engines + NVIDIA Nemotron</span>
+              </div>
+            </section>
+            
+            <section class="slide">
+              <div class="top">
+                <span class="tag">06 // HEAD-TO-HEAD BENCHMARK</span>
+                <span class="meta">OPEN AGENT HACKATHON 2026 · TRACK 3: REASONING ARCHITECTURE</span>
+              </div>
+              <div class="mid">
+                <h1>Naive Single-Prompt Agent vs. MuleTrace Reasoning Architecture</h1>
+                <p class="lead">Reproducible via `python3 -m agent.main --benchmark` across 5 instant-payment laundering cases:</p>
+                <div class="cards"><div class="card"><h3>Token Scaling: 12,513 -> 909 Tokens (-92.7%)</h3><p>Markovian eliminates O(k^2) ledger bloat across 7-hop peel chains.</p></div><div class="card"><h3>Collateral Safety: 7 Bystander Freezes -> 0</h3><p>Protects 42 clinic nurses, 185 SaaS/utility billers, and 4 family home closings.</p></div><div class="card"><h3>Capital Saved: $0 -> $617,800 Across 5 Cases</h3><p>Beats the 240s settlement clock on every benchmark (48s to 173s).</p></div></div>
+              </div>
+              <div class="foot">
+                <span><b>MuleTrace</b> · Team Push And Pray</span>
+                <span>Zetaris + Cursor + Meterless Engines + NVIDIA Nemotron</span>
+              </div>
+            </section>
+            
+            <section class="slide">
+              <div class="top">
+                <span class="tag">07 // SELF-EVOLVING MEMORY</span>
+                <span class="meta">OPEN AGENT HACKATHON 2026 · TRACK 3: REASONING ARCHITECTURE</span>
+              </div>
+              <div class="mid">
+                <h1>Run 1 (6 Hops, 146s) -> Run 2 with H-MEM (2 Hops, 48s)</h1>
+                <p class="lead">After solving SCAM-9104, MuleTrace commits Ring-77's behavioral fingerprint (EMU-NOX-77 + AS209854 + 19s cadence) to H-MEM.</p>
+                <div class="cards"><div class="card"><h3>Cold Start (CASE-01: $120K Fan-Out)</h3><p>Explores 6 hops, prunes Bayview Payroll, freezes $101,500 at OFFRAMP-KRK-991 in 146s.</p></div><div class="card"><h3>Warm Recall (CASE-03: $85K Repeat Hit)</h3><p>Recognizes EMU-NOX-77 at Hop 1, skips 4 mule hops, and locks $79,900 in 48s.</p></div><div class="card"><h3>Compounding Bank Defense</h3><p>Every scam investigation permanently upgrades the bank's reasoning speed.</p></div></div>
+              </div>
+              <div class="foot">
+                <span><b>MuleTrace</b> · Team Push And Pray</span>
+                <span>Zetaris + Cursor + Meterless Engines + NVIDIA Nemotron</span>
+              </div>
+            </section>
+            
+            <section class="slide">
+              <div class="top">
+                <span class="tag">08 // VERIFIED & READY</span>
+                <span class="meta">OPEN AGENT HACKATHON 2026 · TRACK 3: REASONING ARCHITECTURE</span>
+              </div>
+              <div class="mid">
+                <h1>Team Push And Pray · MuleTrace (Track 3: Reasoning Architecture)</h1>
+                <p class="lead">Zero manual setup required with SAMPLE_MODE=true; full live Docker Zetaris + Nightshift support.</p>
+                <div class="cards"><div class="card"><h3>3/3 Official Smoke Checks Passing</h3><p>python3 smoke_test.py verifies Zetaris catalog, REST SQL, and Nightshift Nemotron.</p></div><div class="card"><h3>10/10 Conformance & Ablation Tests</h3><p>python3 -m unittest discover -s tests -v runs in 0.008s.</p></div><div class="card"><h3>Interactive Lab + Motion-Graphics Reel</h3><p>github.com/Sanchay117/muletrace · Built with Zetaris, Cursor, Meterless, and NVIDIA Nemotron.</p></div></div>
+              </div>
+              <div class="foot">
+                <span><b>MuleTrace</b> · Team Push And Pray</span>
+                <span>Zetaris + Cursor + Meterless Engines + NVIDIA Nemotron</span>
+              </div>
+            </section>
+            
+</body>
+</html>

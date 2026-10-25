@@ -1,0 +1,51 @@
+{
+  "project_name": "MuleTrace",
+  "team_name": "Push And Pray",
+  "event": "Open Agent Hackathon 2026",
+  "primary_track": "Track 3: Reasoning Architecture",
+  "special_awards": [
+    "Best use of NVIDIA Nemotron (NVIDIA DGX Spark Founder's Edition)",
+    "Best Cursor-built product"
+  ],
+  "sponsor_technologies": {
+    "cursor": {
+      "used": true,
+      "how_used": "Built in Cursor using Agent Mode (Composer for fast multi-file scaffolding of Zetaris SQL clients, interactive reasoning-tree visualizer, and tests; Grok for designing the speculative Tree-of-Hops search, innocent-account backtrack pruning math, FIFO taint-haircut conservation invariants, and Naive-vs-Markovian head-to-head benchmark). Guided by .cursor/rules/muletrace.mdc and AGENTS.md to enforce Zetaris single-statement SQL calls, optimistic World Model locking, bounded O(1) Markovian hop capsules, and Nightshift model receipts."
+    },
+    "zetaris": {
+      "used": true,
+      "endpoints": [
+        "http://localhost:3000",
+        "http://localhost:8888/api/v1.0/sql-editor/sqls/run"
+      ],
+      "schemas": [
+        "zetaris_wire.rtp_transfer_ledger",
+        "zetaris_cyber.device_ip_sessions",
+        "zetaris_kyc.account_profiles",
+        "zetaris_crypto.offramp_orders",
+        "pokeapi.pikachu_abilities_table"
+      ],
+      "how_used": "Serves as the governed federated SQL data plane across real-time wire transfers, device/IP session telemetry, account KYC/payroll profiles, and crypto off-ramp order books, with single-statement REST execution, UUID4 X-Request-ID tracing, Lightning SQL source registration, and zero-setup SAMPLE_MODE virtualization."
+    },
+    "meterless_engines": {
+      "used": true,
+      "engines_implemented": [
+        "Scout Intent (agent/engines/scout_intent.py)",
+        "World Model (agent/engines/world_model.py)",
+        "Markovian (agent/engines/markovian.py)",
+        "H-MEM (agent/engines/h_mem.py)"
+      ],
+      "how_used": "Core of the Track 3 Reasoning Architecture: Scout Intent classifies laundering typology and exit-countdown urgency; World Model maintains the live branching frontier, pruned safe branches, convergence hubs, and FIFO taint conservation with optimistic locking; Markovian compresses every hop into a fixed-size O(1) capsule (92.5% avg token reduction vs O(n^2) naive agent); H-MEM stores ring device/cadence signatures to shortcut repeat rings from 6 hops to 2 hops."
+    },
+    "meterless_nightshift_and_nvidia_nemotron": {
+      "used": true,
+      "runtime_url": "http://127.0.0.1:8088/v1",
+      "lanes": {
+        "fast_lane_1": "nvidia/nemotron-3.5-lightning-30b-a3b",
+        "deep_lane_2": "nvidia/nemotron-3.5-super-vl-120b-a12b"
+      },
+      "how_used": "Routes parallel hop-chaser scouts to Nemotron 30B for sub-second SQL exploration while routing dead-end innocence pruning, FIFO taint conservation verification, and surgical freeze synthesis to Nemotron 120B, recording a cryptographic ModelReceipt on every reasoning step."
+    }
+  },
+  "pre_existing_components": "None. All source code, reasoning architecture, Meterless Engine modules, Zetaris SQL schemas, benchmark datasets, tests, pitch deck, and motion-graphics video were built from scratch during the Open Agent Hackathon 2026 build window (22-27 October 2026)."
+}

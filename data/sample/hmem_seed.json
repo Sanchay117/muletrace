@@ -1,0 +1,26 @@
+[
+  {
+    "memory_id": "HMEM-RING-7701",
+    "tier": "PRECEDENT",
+    "ring_signature": "EMU-NOX-77::AS209854::19s",
+    "emulator_hash": "EMU-NOX-77",
+    "asn": "AS209854",
+    "split_cadence_sec": 19,
+    "known_exit_hub_pattern": "ACCT-HUB-889 / ACCT-HUB-892 -> OFFRAMP-KRK-99x",
+    "shortcut_hops_saved": 4,
+    "lesson": "Ring-77 splits retiree RTP wires across 2 active mule branches + 1 decoy employer/SMB invoice repayment at 19s cadence via headless Nox emulator on AS209854, re-converging at Hop 5 into Kraken USDT off-ramp.",
+    "created_at": "2026-10-24T09:15:00Z"
+  },
+  {
+    "memory_id": "HMEM-SEM-2104",
+    "tier": "SEMANTIC",
+    "ring_signature": "OMNIBUS_ESCROW_SAFEGUARD",
+    "emulator_hash": "ANY",
+    "asn": "ANY",
+    "split_cadence_sec": 0,
+    "known_exit_hub_pattern": "LICENSED_FIDUCIARY_OMNIBUS",
+    "shortcut_hops_saved": 0,
+    "lesson": "When tainted funds enter a licensed title-escrow omnibus pool with attribution confidence < 0.80, abstain from full-account freeze and issue a narrow sub-ledger dollar hold to protect innocent home closings.",
+    "created_at": "2026-10-24T10:30:00Z"
+  }
+]

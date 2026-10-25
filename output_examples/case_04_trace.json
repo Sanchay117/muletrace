@@ -1,0 +1,899 @@
+{
+  "case_id": "CASE-04",
+  "scam_id": "SCAM-9412",
+  "title": "$64K Co-Mingled Title Escrow Boundary (Ring-Fenced Sub-Ledger Hold)",
+  "victim_name": "Elena & Marcus Vance (First-Time Homebuyers)",
+  "victim_account": "ACCT-VIC-415",
+  "stolen_usd": 64000,
+  "verdict": {
+    "status": "ABSTAIN_FULL_FREEZE_SUBLEDGER_LIEN",
+    "action": "RING_FENCED_SUBLEDGER_HOLD",
+    "target_order_id": "ESCROW-HOLD-610",
+    "target_hub_account": "ACCT-ESCROW-610",
+    "exchange_desk": "Omnibus Title Escrow Sub-Ledger",
+    "recoverable_usd": 64000,
+    "recovery_rate_pct": 100.0,
+    "attribution_confidence": 0.64,
+    "confidence_gate": 0.8,
+    "elapsed_sec": 112,
+    "remaining_sec_to_finality": 128,
+    "false_freezes": 0,
+    "innocent_bystanders_protected": 14,
+    "hmem_fastpath_used": false,
+    "hops_traversed": 4
+  },
+  "naive_vs_architecture_benchmark": {
+    "naive_linear_agent": {
+      "prompt_tokens_cumulative": 10796,
+      "false_freezes_triggered": 2,
+      "innocent_bystanders_harmed": 18,
+      "convergence_hub_caught": false,
+      "elapsed_sec_estimated": 288,
+      "missed_240s_exit_window": true,
+      "recovered_usd": 0,
+      "failure_reason": "O(k^2) raw ledger prompt bloat caused taint-ratio loss, froze innocent bystander pool, and exceeded the 240s crypto finality window."
+    },
+    "muletrace_reasoning_architecture": {
+      "capsule_tokens_cumulative": 867,
+      "token_reduction_pct": 92.0,
+      "false_freezes_triggered": 0,
+      "innocent_bystanders_protected": 18,
+      "convergence_hub_caught": true,
+      "hops_traversed": 4,
+      "elapsed_sec_at_intercept": 112,
+      "remaining_sec_before_finality": 128,
+      "recovered_usd": 64000,
+      "recovery_rate_pct": 100.0,
+      "verdict_action": "RING_FENCED_SUBLEDGER_HOLD"
+    }
+  },
+  "reasoning_trace": [
+    {
+      "step": 1,
+      "agent": "Typology & Ring Memory Planner",
+      "engines_used": [
+        "Scout Intent",
+        "World Model",
+        "H-MEM",
+        "Markovian"
+      ],
+      "sql_executed": [],
+      "output_summary": "PLANNER INIT [SCAM-9412]: Typology=FIDUCIARY_ESCROW_BOUNDARY, Urgency=CRITICAL_240S_EXIT (87/100). Seeded ACCT-VIC-415 ($64,000) in World Model v1. Allocated 2 parallel scout branches up to 5 hops.",
+      "model_receipt": {
+        "receipt_id": "NS-RCPT-048490D4F6",
+        "step_name": "Step 1: Typology & Ring Memory Planner",
+        "agent_name": "Typology & Ring Memory Planner",
+        "lane": "Lane 1 (Fast 30B)",
+        "requested_model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+        "model_handled_by": "nvidia/nemotron-3.5-lightning-30b-a3b",
+        "provider": "meterless-nightshift (sample-verified)",
+        "latency_ms": 42.0,
+        "prompt_tokens": 41,
+        "completion_tokens": 29
+      },
+      "markovian_capsule": {
+        "step_index": 1,
+        "step_name": "Step 1: Planner",
+        "agent_name": "Typology & Ring Memory Planner",
+        "raw_step_tokens": 446,
+        "naive_cumulative_prompt_tokens": 446,
+        "bounded_capsule_tokens": 138,
+        "capsule_text": "[MARKOVIAN HOP CAPSULE #1 | Step 1: Planner]\nFRONTIER=[ACCT-VIC-415] | PRUNED_SAFE=[NONE] | TAINT_TRACKED=$64,000 | NEXT=Scout Hops 1-2 for SCAM-9412 in zetaris_wire.rtp_transfer_ledger",
+        "active_frontier": [
+          "ACCT-VIC-415"
+        ],
+        "pruned_safe_accounts": [],
+        "tracked_taint_usd": 64000
+      }
+    },
+    {
+      "step": 2,
+      "agent": "Parallel Fan-Out Hop Scouts",
+      "engines_used": [
+        "World Model",
+        "H-MEM",
+        "Markovian"
+      ],
+      "sql_executed": [
+        {
+          "request_id": "fb460b6d-f0ba-4742-a59d-aeb2e533ac7d",
+          "query_id": "53f5ebbf-9a6f-46bc-bdf7-4526b8dd4d4c",
+          "sql": "SELECT * FROM zetaris_wire.rtp_transfer_ledger WHERE case_id = 'CASE-04' AND hop <= 3 ORDER BY hop ASC, elapsed_sec ASC",
+          "row_count": 3,
+          "rows": [
+            {
+              "tx_id": "TX-9412-H1A",
+              "case_id": "CASE-04",
+              "scam_id": "SCAM-9412",
+              "hop": 1,
+              "branch": "A",
+              "from_acct": "ACCT-VIC-415",
+              "to_acct": "ACCT-MULE-701",
+              "amount_usd": 64000,
+              "tainted_fifo_usd": 64000,
+              "elapsed_sec": 21,
+              "rail": "FEDNOW",
+              "memo": "CLOSING WIRE"
+            },
+            {
+              "tx_id": "TX-9412-H2A",
+              "case_id": "CASE-04",
+              "scam_id": "SCAM-9412",
+              "hop": 2,
+              "branch": "A",
+              "from_acct": "ACCT-MULE-701",
+              "to_acct": "ACCT-MULE-702",
+              "amount_usd": 64000,
+              "tainted_fifo_usd": 64000,
+              "elapsed_sec": 54,
+              "rail": "RTP",
+              "memo": "RELAY-702"
+            },
+            {
+              "tx_id": "TX-9412-H3B",
+              "case_id": "CASE-04",
+              "scam_id": "SCAM-9412",
+              "hop": 3,
+              "branch": "B",
+              "from_acct": "ACCT-MULE-702",
+              "to_acct": "ACCT-DENTAL-811",
+              "amount_usd": 0,
+              "tainted_fifo_usd": 0,
+              "elapsed_sec": 79,
+              "rail": "ACH_SAME_DAY",
+              "memo": "ZERO TAINT REFUND"
+            }
+          ],
+          "latency_ms": 0.07,
+          "execution_mode": "zetaris-virtualized-sample"
+        },
+        {
+          "request_id": "22fa0d77-2bb0-4c64-8df7-8ffaa9a7c388",
+          "query_id": "93b5489c-69d3-4dcb-9f23-8c3894f065bc",
+          "sql": "SELECT * FROM zetaris_cyber.device_ip_sessions WHERE case_id = 'CASE-04'",
+          "row_count": 2,
+          "rows": [
+            {
+              "session_id": "SES-9412-1",
+              "case_id": "CASE-04",
+              "account_id": "ACCT-MULE-701",
+              "emulator_hash": "EMU-GENY-08",
+              "asn": "AS14061_DO",
+              "ip_subnet": "159.89.40.11",
+              "split_cadence_sec": 33,
+              "headless_script": 1
+            },
+            {
+              "session_id": "SES-9412-2",
+              "case_id": "CASE-04",
+              "account_id": "ACCT-ESCROW-610",
+              "emulator_hash": "NONE",
+              "asn": "AS7922_COMCAST_BIZ",
+              "ip_subnet": "73.41.90.15",
+              "split_cadence_sec": 0,
+              "headless_script": 0
+            }
+          ],
+          "latency_ms": 0.03,
+          "execution_mode": "zetaris-virtualized-sample"
+        }
+      ],
+      "output_summary": "FAN-OUT SCOUTS R1: Explored 3 transfer edges across early hops. Active frontier=['ACCT-DENTAL-811']. Observed emulator=EMU-GENY-08 on AS14061_DO (33s split cadence).",
+      "model_receipt": {
+        "receipt_id": "NS-RCPT-BB42D08B5C",
+        "step_name": "Step 2: Parallel Fan-Out Hop Scouts",
+        "agent_name": "Parallel Fan-Out Hop Scouts",
+        "lane": "Lane 1 (Fast 30B)",
+        "requested_model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+        "model_handled_by": "nvidia/nemotron-3.5-lightning-30b-a3b",
+        "provider": "meterless-nightshift (sample-verified)",
+        "latency_ms": 42.0,
+        "prompt_tokens": 46,
+        "completion_tokens": 25
+      },
+      "markovian_capsule": {
+        "step_index": 2,
+        "step_name": "Step 2: Fan-Out Scouts",
+        "agent_name": "Parallel Fan-Out Hop Scouts",
+        "raw_step_tokens": 614,
+        "naive_cumulative_prompt_tokens": 1060,
+        "bounded_capsule_tokens": 142,
+        "capsule_text": "[MARKOVIAN HOP CAPSULE #2 | Step 2: Fan-Out Scouts]\nFRONTIER=[ACCT-DENTAL-811] | PRUNED_SAFE=[NONE] | TAINT_TRACKED=$64,000 | NEXT=Audit frontier accounts against zetaris_kyc.account_profiles before deeper chase",
+        "active_frontier": [
+          "ACCT-DENTAL-811"
+        ],
+        "pruned_safe_accounts": [],
+        "tracked_taint_usd": 64000
+      }
+    },
+    {
+      "step": 3,
+      "agent": "Innocence & Dead-End Pruning Critic",
+      "engines_used": [
+        "World Model",
+        "Markovian"
+      ],
+      "sql_executed": [
+        {
+          "request_id": "a12b2e96-715a-484c-bffc-9e07664e0550",
+          "query_id": "45ca34e0-c0a6-4794-8a8c-40d8dc59aafd",
+          "sql": "SELECT * FROM zetaris_kyc.account_profiles WHERE case_id = 'CASE-04'",
+          "row_count": 2,
+          "rows": [
+            {
+              "account_id": "ACCT-DENTAL-811",
+              "case_id": "CASE-04",
+              "holder_name": "Oakridge Family Dental",
+              "kyc_status": "VERIFIED_CLINIC",
+              "account_age_days": 2210,
+              "legit_pool_usd": 92000,
+              "protected_bystanders": 14,
+              "bystander_label": "14 clinic staff accounts",
+              "is_innocent_bystander": 1
+            },
+            {
+              "account_id": "ACCT-ESCROW-610",
+              "case_id": "CASE-04",
+              "holder_name": "Pacific Coast Licensed Title Escrow",
+              "kyc_status": "LICENSED_FIDUCIARY_OMNIBUS",
+              "account_age_days": 4380,
+              "legit_pool_usd": 1420000,
+              "protected_bystanders": 4,
+              "bystander_label": "4 family home-closing escrow wires",
+              "is_innocent_bystander": 0
+            }
+          ],
+          "latency_ms": 0.02,
+          "execution_mode": "zetaris-virtualized-sample"
+        }
+      ],
+      "output_summary": "CRITIC PRUNE & BACKTRACK (VERDICT: PRUNED_1_BYSTANDER_BRANCHES): Blocked naive freeze on ['ACCT-DENTAL-811'] protecting 14 innocent bystanders. Backtracked search compute onto active mule frontier [].",
+      "model_receipt": {
+        "receipt_id": "NS-RCPT-F2E82D3F7C",
+        "step_name": "Step 3: Innocence & Dead-End Pruning Critic",
+        "agent_name": "Innocence & Dead-End Pruning Critic",
+        "lane": "Lane 2 (Deep 120B)",
+        "requested_model": "nvidia/nemotron-3.5-super-vl-120b-a12b",
+        "model_handled_by": "nvidia/nemotron-3.5-super-vl-120b-a12b",
+        "provider": "meterless-nightshift (sample-verified)",
+        "latency_ms": 96.0,
+        "prompt_tokens": 46,
+        "completion_tokens": 30
+      },
+      "markovian_capsule": {
+        "step_index": 3,
+        "step_name": "Step 3: Pruning Critic",
+        "agent_name": "Innocence & Dead-End Pruning Critic",
+        "raw_step_tokens": 527,
+        "naive_cumulative_prompt_tokens": 1587,
+        "bounded_capsule_tokens": 147,
+        "capsule_text": "[MARKOVIAN HOP CAPSULE #3 | Step 3: Pruning Critic]\nFRONTIER=[NONE] | PRUNED_SAFE=[ACCT-DENTAL-811] | TAINT_TRACKED=$64,000 | NEXT=Execute Round 2 deep hop SQL (hop > 3) and query zetaris_crypto.offramp_orders",
+        "active_frontier": [],
+        "pruned_safe_accounts": [
+          "ACCT-DENTAL-811"
+        ],
+        "tracked_taint_usd": 64000
+      }
+    },
+    {
+      "step": 4,
+      "agent": "Deep Peel & Convergence Chaser",
+      "engines_used": [
+        "World Model",
+        "H-MEM",
+        "Markovian"
+      ],
+      "sql_executed": [
+        {
+          "request_id": "f4cf2c8d-b4a9-4307-accd-d10314427e2c",
+          "query_id": "1e63c385-c131-4722-8df1-dffac8f3cac6",
+          "sql": "SELECT * FROM zetaris_wire.rtp_transfer_ledger WHERE case_id = 'CASE-04' AND hop > 3 ORDER BY hop ASC, elapsed_sec ASC",
+          "row_count": 1,
+          "rows": [
+            {
+              "tx_id": "TX-9412-H4X",
+              "case_id": "CASE-04",
+              "scam_id": "SCAM-9412",
+              "hop": 4,
+              "branch": "ESCROW_MIX",
+              "from_acct": "ACCT-MULE-702",
+              "to_acct": "ACCT-ESCROW-610",
+              "amount_usd": 64000,
+              "tainted_fifo_usd": 64000,
+              "elapsed_sec": 112,
+              "rail": "FEDNOW",
+              "memo": "OMNIBUS TITLE POOL"
+            }
+          ],
+          "latency_ms": 0.03,
+          "execution_mode": "zetaris-virtualized-sample"
+        },
+        {
+          "request_id": "e9ade9f3-459a-4659-8872-6db13959f566",
+          "query_id": "a3587b13-3f92-40e2-b187-b39f80acfaab",
+          "sql": "SELECT * FROM zetaris_crypto.offramp_orders WHERE case_id = 'CASE-04'",
+          "row_count": 1,
+          "rows": [
+            {
+              "order_id": "ESCROW-HOLD-610",
+              "case_id": "CASE-04",
+              "hub_account": "ACCT-ESCROW-610",
+              "exchange_desk": "Omnibus Title Escrow Sub-Ledger",
+              "pending_exit_usd": 64000,
+              "residual_mule_usd": 0,
+              "total_recoverable_usd": 64000,
+              "exit_window_total_sec": 240,
+              "elapsed_at_intercept_sec": 112,
+              "remaining_sec_to_finality": 128,
+              "attribution_confidence": 0.64
+            }
+          ],
+          "latency_ms": 0.02,
+          "execution_mode": "zetaris-virtualized-sample"
+        }
+      ],
+      "output_summary": "DEEP CONVERGENCE CHASE COMPLETE: Traced surviving branches to Hop 4, uncovering convergence hub ACCT-ESCROW-610 feeding ESCROW-HOLD-610 (128s left before irreversible crypto settlement).",
+      "model_receipt": {
+        "receipt_id": "NS-RCPT-F7B5E02C24",
+        "step_name": "Step 4: Deep Peel & Convergence Chaser",
+        "agent_name": "Deep Peel & Convergence Chaser",
+        "lane": "Lane 1 (Fast 30B)",
+        "requested_model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+        "model_handled_by": "nvidia/nemotron-3.5-lightning-30b-a3b",
+        "provider": "meterless-nightshift (sample-verified)",
+        "latency_ms": 42.0,
+        "prompt_tokens": 53,
+        "completion_tokens": 29
+      },
+      "markovian_capsule": {
+        "step_index": 4,
+        "step_name": "Step 4: Convergence Chaser",
+        "agent_name": "Deep Peel & Convergence Chaser",
+        "raw_step_tokens": 527,
+        "naive_cumulative_prompt_tokens": 2114,
+        "bounded_capsule_tokens": 151,
+        "capsule_text": "[MARKOVIAN HOP CAPSULE #4 | Step 4: Convergence Chaser]\nFRONTIER=[ESCROW-HOLD-610] | PRUNED_SAFE=[ACCT-DENTAL-811] | TAINT_TRACKED=$64,000 | NEXT=Verify FIFO taint conservation and 80% hard-freeze confidence gate",
+        "active_frontier": [
+          "ESCROW-HOLD-610"
+        ],
+        "pruned_safe_accounts": [
+          "ACCT-DENTAL-811"
+        ],
+        "tracked_taint_usd": 64000
+      }
+    },
+    {
+      "step": 5,
+      "agent": "FIFO Taint & Collateral Arbiter",
+      "engines_used": [
+        "World Model",
+        "Markovian"
+      ],
+      "sql_executed": [],
+      "output_summary": "CONFIDENCE GATE ABSTENTION (64% < 80%): ACCT-ESCROW-610 is a licensed omnibus title-escrow pool holding $1,420,000 across 4 home closings. Refusing destructive full-account freeze; issuing exact $64,000 sub-ledger ring-fence hold.",
+      "model_receipt": {
+        "receipt_id": "NS-RCPT-701B0A9553",
+        "step_name": "Step 5: FIFO Taint & Collateral Arbiter",
+        "agent_name": "FIFO Taint & Collateral Arbiter",
+        "lane": "Lane 2 (Deep 120B)",
+        "requested_model": "nvidia/nemotron-3.5-super-vl-120b-a12b",
+        "model_handled_by": "nvidia/nemotron-3.5-super-vl-120b-a12b",
+        "provider": "meterless-nightshift (sample-verified)",
+        "latency_ms": 96.0,
+        "prompt_tokens": 46,
+        "completion_tokens": 38
+      },
+      "markovian_capsule": {
+        "step_index": 5,
+        "step_name": "Step 5: Taint Arbiter",
+        "agent_name": "FIFO Taint & Collateral Arbiter",
+        "raw_step_tokens": 457,
+        "naive_cumulative_prompt_tokens": 2571,
+        "bounded_capsule_tokens": 151,
+        "capsule_text": "[MARKOVIAN HOP CAPSULE #5 | Step 5: Taint Arbiter]\nFRONTIER=[ESCROW-HOLD-610] | PRUNED_SAFE=[ACCT-DENTAL-811] | TAINT_TRACKED=$64,000 | NEXT=Emit RING_FENCED_SUBLEDGER_HOLD directive and commit ring fingerprint to H-MEM",
+        "active_frontier": [
+          "ESCROW-HOLD-610"
+        ],
+        "pruned_safe_accounts": [
+          "ACCT-DENTAL-811"
+        ],
+        "tracked_taint_usd": 64000
+      }
+    },
+    {
+      "step": 6,
+      "agent": "Surgical Freeze & H-MEM Evolution",
+      "engines_used": [
+        "H-MEM",
+        "World Model",
+        "Markovian"
+      ],
+      "sql_executed": [],
+      "output_summary": "FINAL RING_FENCED_SUBLEDGER_HOLD ISSUED [SCAM-9412]: Locked $64,000 (100.0%) at ESCROW-HOLD-610 (128s before settlement finality). Protected 14 innocent bystanders (0 false freezes). H-MEM record: HMEM-SEM-2104.",
+      "model_receipt": {
+        "receipt_id": "NS-RCPT-614C7D447E",
+        "step_name": "Step 6: Surgical Freeze & H-MEM Evolution",
+        "agent_name": "Surgical Freeze & H-MEM Evolution",
+        "lane": "Lane 2 (Deep 120B)",
+        "requested_model": "nvidia/nemotron-3.5-super-vl-120b-a12b",
+        "model_handled_by": "nvidia/nemotron-3.5-super-vl-120b-a12b",
+        "provider": "meterless-nightshift (sample-verified)",
+        "latency_ms": 96.0,
+        "prompt_tokens": 49,
+        "completion_tokens": 30
+      },
+      "markovian_capsule": {
+        "step_index": 6,
+        "step_name": "Step 6: Freeze & H-MEM",
+        "agent_name": "Surgical Freeze & H-MEM Evolution",
+        "raw_step_tokens": 447,
+        "naive_cumulative_prompt_tokens": 3018,
+        "bounded_capsule_tokens": 138,
+        "capsule_text": "[MARKOVIAN HOP CAPSULE #6 | Step 6: Freeze & H-MEM]\nFRONTIER=[ESCROW-HOLD-610] | PRUNED_SAFE=[ACCT-DENTAL-811] | TAINT_TRACKED=$64,000 | NEXT=FINALIZE",
+        "active_frontier": [
+          "ESCROW-HOLD-610"
+        ],
+        "pruned_safe_accounts": [
+          "ACCT-DENTAL-811"
+        ],
+        "tracked_taint_usd": 64000
+      }
+    }
+  ],
+  "sponsor_technology_evidence": {
+    "zetaris": {
+      "total_sql_queries": 5,
+      "queries": [
+        {
+          "request_id": "fb460b6d-f0ba-4742-a59d-aeb2e533ac7d",
+          "query_id": "53f5ebbf-9a6f-46bc-bdf7-4526b8dd4d4c",
+          "sql": "SELECT * FROM zetaris_wire.rtp_transfer_ledger WHERE case_id = 'CASE-04' AND hop <= 3 ORDER BY hop ASC, elapsed_sec ASC",
+          "row_count": 3,
+          "rows": [
+            {
+              "tx_id": "TX-9412-H1A",
+              "case_id": "CASE-04",
+              "scam_id": "SCAM-9412",
+              "hop": 1,
+              "branch": "A",
+              "from_acct": "ACCT-VIC-415",
+              "to_acct": "ACCT-MULE-701",
+              "amount_usd": 64000,
+              "tainted_fifo_usd": 64000,
+              "elapsed_sec": 21,
+              "rail": "FEDNOW",
+              "memo": "CLOSING WIRE"
+            },
+            {
+              "tx_id": "TX-9412-H2A",
+              "case_id": "CASE-04",
+              "scam_id": "SCAM-9412",
+              "hop": 2,
+              "branch": "A",
+              "from_acct": "ACCT-MULE-701",
+              "to_acct": "ACCT-MULE-702",
+              "amount_usd": 64000,
+              "tainted_fifo_usd": 64000,
+              "elapsed_sec": 54,
+              "rail": "RTP",
+              "memo": "RELAY-702"
+            },
+            {
+              "tx_id": "TX-9412-H3B",
+              "case_id": "CASE-04",
+              "scam_id": "SCAM-9412",
+              "hop": 3,
+              "branch": "B",
+              "from_acct": "ACCT-MULE-702",
+              "to_acct": "ACCT-DENTAL-811",
+              "amount_usd": 0,
+              "tainted_fifo_usd": 0,
+              "elapsed_sec": 79,
+              "rail": "ACH_SAME_DAY",
+              "memo": "ZERO TAINT REFUND"
+            }
+          ],
+          "latency_ms": 0.07,
+          "execution_mode": "zetaris-virtualized-sample"
+        },
+        {
+          "request_id": "22fa0d77-2bb0-4c64-8df7-8ffaa9a7c388",
+          "query_id": "93b5489c-69d3-4dcb-9f23-8c3894f065bc",
+          "sql": "SELECT * FROM zetaris_cyber.device_ip_sessions WHERE case_id = 'CASE-04'",
+          "row_count": 2,
+          "rows": [
+            {
+              "session_id": "SES-9412-1",
+              "case_id": "CASE-04",
+              "account_id": "ACCT-MULE-701",
+              "emulator_hash": "EMU-GENY-08",
+              "asn": "AS14061_DO",
+              "ip_subnet": "159.89.40.11",
+              "split_cadence_sec": 33,
+              "headless_script": 1
+            },
+            {
+              "session_id": "SES-9412-2",
+              "case_id": "CASE-04",
+              "account_id": "ACCT-ESCROW-610",
+              "emulator_hash": "NONE",
+              "asn": "AS7922_COMCAST_BIZ",
+              "ip_subnet": "73.41.90.15",
+              "split_cadence_sec": 0,
+              "headless_script": 0
+            }
+          ],
+          "latency_ms": 0.03,
+          "execution_mode": "zetaris-virtualized-sample"
+        },
+        {
+          "request_id": "a12b2e96-715a-484c-bffc-9e07664e0550",
+          "query_id": "45ca34e0-c0a6-4794-8a8c-40d8dc59aafd",
+          "sql": "SELECT * FROM zetaris_kyc.account_profiles WHERE case_id = 'CASE-04'",
+          "row_count": 2,
+          "rows": [
+            {
+              "account_id": "ACCT-DENTAL-811",
+              "case_id": "CASE-04",
+              "holder_name": "Oakridge Family Dental",
+              "kyc_status": "VERIFIED_CLINIC",
+              "account_age_days": 2210,
+              "legit_pool_usd": 92000,
+              "protected_bystanders": 14,
+              "bystander_label": "14 clinic staff accounts",
+              "is_innocent_bystander": 1
+            },
+            {
+              "account_id": "ACCT-ESCROW-610",
+              "case_id": "CASE-04",
+              "holder_name": "Pacific Coast Licensed Title Escrow",
+              "kyc_status": "LICENSED_FIDUCIARY_OMNIBUS",
+              "account_age_days": 4380,
+              "legit_pool_usd": 1420000,
+              "protected_bystanders": 4,
+              "bystander_label": "4 family home-closing escrow wires",
+              "is_innocent_bystander": 0
+            }
+          ],
+          "latency_ms": 0.02,
+          "execution_mode": "zetaris-virtualized-sample"
+        },
+        {
+          "request_id": "f4cf2c8d-b4a9-4307-accd-d10314427e2c",
+          "query_id": "1e63c385-c131-4722-8df1-dffac8f3cac6",
+          "sql": "SELECT * FROM zetaris_wire.rtp_transfer_ledger WHERE case_id = 'CASE-04' AND hop > 3 ORDER BY hop ASC, elapsed_sec ASC",
+          "row_count": 1,
+          "rows": [
+            {
+              "tx_id": "TX-9412-H4X",
+              "case_id": "CASE-04",
+              "scam_id": "SCAM-9412",
+              "hop": 4,
+              "branch": "ESCROW_MIX",
+              "from_acct": "ACCT-MULE-702",
+              "to_acct": "ACCT-ESCROW-610",
+              "amount_usd": 64000,
+              "tainted_fifo_usd": 64000,
+              "elapsed_sec": 112,
+              "rail": "FEDNOW",
+              "memo": "OMNIBUS TITLE POOL"
+            }
+          ],
+          "latency_ms": 0.03,
+          "execution_mode": "zetaris-virtualized-sample"
+        },
+        {
+          "request_id": "e9ade9f3-459a-4659-8872-6db13959f566",
+          "query_id": "a3587b13-3f92-40e2-b187-b39f80acfaab",
+          "sql": "SELECT * FROM zetaris_crypto.offramp_orders WHERE case_id = 'CASE-04'",
+          "row_count": 1,
+          "rows": [
+            {
+              "order_id": "ESCROW-HOLD-610",
+              "case_id": "CASE-04",
+              "hub_account": "ACCT-ESCROW-610",
+              "exchange_desk": "Omnibus Title Escrow Sub-Ledger",
+              "pending_exit_usd": 64000,
+              "residual_mule_usd": 0,
+              "total_recoverable_usd": 64000,
+              "exit_window_total_sec": 240,
+              "elapsed_at_intercept_sec": 112,
+              "remaining_sec_to_finality": 128,
+              "attribution_confidence": 0.64
+            }
+          ],
+          "latency_ms": 0.02,
+          "execution_mode": "zetaris-virtualized-sample"
+        }
+      ]
+    },
+    "meterless_engines": {
+      "scout_intent": {
+        "scam_id": "SCAM-9412",
+        "typology": "FIDUCIARY_ESCROW_BOUNDARY",
+        "urgency_level": "CRITICAL_240S_EXIT",
+        "urgency_score": 87,
+        "max_branch_budget": 2,
+        "max_hop_depth": 5,
+        "enable_hmem_fastpath_check": true,
+        "require_fiduciary_lien_gate": true,
+        "required_zetaris_tables": [
+          "zetaris_wire.rtp_transfer_ledger",
+          "zetaris_cyber.device_ip_sessions",
+          "zetaris_kyc.account_profiles",
+          "zetaris_crypto.offramp_orders"
+        ],
+        "fast_scout_model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+        "deep_arbiter_model": "nvidia/nemotron-3.5-super-vl-120b-a12b"
+      },
+      "world_model": {
+        "version": 6,
+        "node_count": 5,
+        "edge_count": 4,
+        "active_frontier": [
+          "ACCT-ESCROW-610"
+        ],
+        "pruned_branch_count": 1,
+        "pruned_branches": [
+          {
+            "account_id": "ACCT-DENTAL-811",
+            "branch": "B",
+            "holder_name": "Oakridge Family Dental",
+            "protected_bystanders": 14,
+            "bystander_label": "14 clinic staff accounts",
+            "legit_pool_usd": 92000,
+            "action": "BACKTRACKED_NO_FREEZE",
+            "reason": "Verified VERIFIED_CLINIC (2210d age), $92,000 legit pool (14 clinic staff accounts), emulator=NONE. Freezing would cause catastrophic collateral harm."
+          }
+        ],
+        "total_bystanders_protected": 14,
+        "convergence_hubs": [],
+        "tainted_balance_usd": {
+          "ACCT-VIC-415": 0,
+          "ACCT-MULE-701": 0,
+          "ACCT-MULE-702": 0,
+          "ACCT-DENTAL-811": 0,
+          "ACCT-ESCROW-610": 64000
+        },
+        "nodes": [
+          {
+            "account_id": "ACCT-VIC-415",
+            "role": "VICTIM_ROOT",
+            "hop": 0,
+            "status": "ORIGIN",
+            "inbound_branches": [
+              "ROOT"
+            ]
+          },
+          {
+            "account_id": "ACCT-MULE-701",
+            "role": "FRONTIER_CANDIDATE",
+            "hop": 1,
+            "status": "ACTIVE",
+            "inbound_branches": [
+              "A"
+            ]
+          },
+          {
+            "account_id": "ACCT-MULE-702",
+            "role": "FRONTIER_CANDIDATE",
+            "hop": 2,
+            "status": "ACTIVE",
+            "inbound_branches": [
+              "A"
+            ]
+          },
+          {
+            "account_id": "ACCT-DENTAL-811",
+            "role": "INNOCENT_BYSTANDER_PRUNED",
+            "hop": 3,
+            "status": "BACKTRACKED_SAFEGUARD",
+            "inbound_branches": [
+              "B"
+            ]
+          },
+          {
+            "account_id": "ACCT-ESCROW-610",
+            "role": "FRONTIER_CANDIDATE",
+            "hop": 4,
+            "status": "ACTIVE",
+            "inbound_branches": [
+              "ESCROW_MIX"
+            ]
+          }
+        ],
+        "edges": [
+          {
+            "tx_id": "TX-9412-H1A",
+            "hop": 1,
+            "branch": "A",
+            "from_acct": "ACCT-VIC-415",
+            "to_acct": "ACCT-MULE-701",
+            "amount_usd": 64000,
+            "tainted_fifo_usd": 64000,
+            "elapsed_sec": 21,
+            "rail": "FEDNOW",
+            "source_table": "zetaris_wire.rtp_transfer_ledger"
+          },
+          {
+            "tx_id": "TX-9412-H2A",
+            "hop": 2,
+            "branch": "A",
+            "from_acct": "ACCT-MULE-701",
+            "to_acct": "ACCT-MULE-702",
+            "amount_usd": 64000,
+            "tainted_fifo_usd": 64000,
+            "elapsed_sec": 54,
+            "rail": "RTP",
+            "source_table": "zetaris_wire.rtp_transfer_ledger"
+          },
+          {
+            "tx_id": "TX-9412-H3B",
+            "hop": 3,
+            "branch": "B",
+            "from_acct": "ACCT-MULE-702",
+            "to_acct": "ACCT-DENTAL-811",
+            "amount_usd": 0,
+            "tainted_fifo_usd": 0,
+            "elapsed_sec": 79,
+            "rail": "ACH_SAME_DAY",
+            "source_table": "zetaris_wire.rtp_transfer_ledger"
+          },
+          {
+            "tx_id": "TX-9412-H4X",
+            "hop": 4,
+            "branch": "ESCROW_MIX",
+            "from_acct": "ACCT-MULE-702",
+            "to_acct": "ACCT-ESCROW-610",
+            "amount_usd": 64000,
+            "tainted_fifo_usd": 64000,
+            "elapsed_sec": 112,
+            "rail": "FEDNOW",
+            "source_table": "zetaris_wire.rtp_transfer_ledger"
+          }
+        ]
+      },
+      "markovian": {
+        "steps_completed": 6,
+        "naive_total_prompt_tokens": 10796,
+        "markovian_total_capsule_tokens": 867,
+        "total_tokens_saved": 9929,
+        "compression_ratio_pct": 92.0,
+        "max_capsule_budget": 210,
+        "step_token_curve": [
+          {
+            "step": 1,
+            "naive_prompt_tokens": 446,
+            "markovian_capsule_tokens": 138
+          },
+          {
+            "step": 2,
+            "naive_prompt_tokens": 1060,
+            "markovian_capsule_tokens": 142
+          },
+          {
+            "step": 3,
+            "naive_prompt_tokens": 1587,
+            "markovian_capsule_tokens": 147
+          },
+          {
+            "step": 4,
+            "naive_prompt_tokens": 2114,
+            "markovian_capsule_tokens": 151
+          },
+          {
+            "step": 5,
+            "naive_prompt_tokens": 2571,
+            "markovian_capsule_tokens": 151
+          },
+          {
+            "step": 6,
+            "naive_prompt_tokens": 3018,
+            "markovian_capsule_tokens": 138
+          }
+        ]
+      },
+      "h_mem": {
+        "matched_ring_records": [],
+        "semantic_safeguards": [
+          {
+            "memory_id": "HMEM-SEM-2104",
+            "tier": "SEMANTIC",
+            "ring_signature": "OMNIBUS_ESCROW_SAFEGUARD",
+            "emulator_hash": "ANY",
+            "asn": "ANY",
+            "split_cadence_sec": 0,
+            "known_exit_hub_pattern": "LICENSED_FIDUCIARY_OMNIBUS",
+            "shortcut_hops_saved": 0,
+            "lesson": "When tainted funds enter a licensed title-escrow omnibus pool with attribution confidence < 0.80, abstain from full-account freeze and issue a narrow sub-ledger dollar hold to protect innocent home closings.",
+            "created_at": "2026-10-24T10:30:00Z"
+          }
+        ],
+        "committed_record": null
+      }
+    },
+    "meterless_nightshift_and_nvidia_nemotron": {
+      "runtime_endpoint": "http://127.0.0.1:8088/v1",
+      "meterless_app": "muletrace-agent",
+      "total_nemotron_calls": 6,
+      "models_used_summary": {
+        "nvidia/nemotron-3.5-lightning-30b-a3b": 3,
+        "nvidia/nemotron-3.5-super-vl-120b-a12b": 3
+      },
+      "receipts": [
+        {
+          "receipt_id": "NS-RCPT-048490D4F6",
+          "step_name": "Step 1: Typology & Ring Memory Planner",
+          "agent_name": "Typology & Ring Memory Planner",
+          "lane": "Lane 1 (Fast 30B)",
+          "requested_model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+          "model_handled_by": "nvidia/nemotron-3.5-lightning-30b-a3b",
+          "provider": "meterless-nightshift (sample-verified)",
+          "latency_ms": 42.0,
+          "prompt_tokens": 41,
+          "completion_tokens": 29
+        },
+        {
+          "receipt_id": "NS-RCPT-BB42D08B5C",
+          "step_name": "Step 2: Parallel Fan-Out Hop Scouts",
+          "agent_name": "Parallel Fan-Out Hop Scouts",
+          "lane": "Lane 1 (Fast 30B)",
+          "requested_model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+          "model_handled_by": "nvidia/nemotron-3.5-lightning-30b-a3b",
+          "provider": "meterless-nightshift (sample-verified)",
+          "latency_ms": 42.0,
+          "prompt_tokens": 46,
+          "completion_tokens": 25
+        },
+        {
+          "receipt_id": "NS-RCPT-F2E82D3F7C",
+          "step_name": "Step 3: Innocence & Dead-End Pruning Critic",
+          "agent_name": "Innocence & Dead-End Pruning Critic",
+          "lane": "Lane 2 (Deep 120B)",
+          "requested_model": "nvidia/nemotron-3.5-super-vl-120b-a12b",
+          "model_handled_by": "nvidia/nemotron-3.5-super-vl-120b-a12b",
+          "provider": "meterless-nightshift (sample-verified)",
+          "latency_ms": 96.0,
+          "prompt_tokens": 46,
+          "completion_tokens": 30
+        },
+        {
+          "receipt_id": "NS-RCPT-F7B5E02C24",
+          "step_name": "Step 4: Deep Peel & Convergence Chaser",
+          "agent_name": "Deep Peel & Convergence Chaser",
+          "lane": "Lane 1 (Fast 30B)",
+          "requested_model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+          "model_handled_by": "nvidia/nemotron-3.5-lightning-30b-a3b",
+          "provider": "meterless-nightshift (sample-verified)",
+          "latency_ms": 42.0,
+          "prompt_tokens": 53,
+          "completion_tokens": 29
+        },
+        {
+          "receipt_id": "NS-RCPT-701B0A9553",
+          "step_name": "Step 5: FIFO Taint & Collateral Arbiter",
+          "agent_name": "FIFO Taint & Collateral Arbiter",
+          "lane": "Lane 2 (Deep 120B)",
+          "requested_model": "nvidia/nemotron-3.5-super-vl-120b-a12b",
+          "model_handled_by": "nvidia/nemotron-3.5-super-vl-120b-a12b",
+          "provider": "meterless-nightshift (sample-verified)",
+          "latency_ms": 96.0,
+          "prompt_tokens": 46,
+          "completion_tokens": 38
+        },
+        {
+          "receipt_id": "NS-RCPT-614C7D447E",
+          "step_name": "Step 6: Surgical Freeze & H-MEM Evolution",
+          "agent_name": "Surgical Freeze & H-MEM Evolution",
+          "lane": "Lane 2 (Deep 120B)",
+          "requested_model": "nvidia/nemotron-3.5-super-vl-120b-a12b",
+          "model_handled_by": "nvidia/nemotron-3.5-super-vl-120b-a12b",
+          "provider": "meterless-nightshift (sample-verified)",
+          "latency_ms": 96.0,
+          "prompt_tokens": 49,
+          "completion_tokens": 30
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,163 @@
+{
+  "fps": 30,
+  "transitionFrames": 12,
+  "totalDurationInFrames": 4588,
+  "totalDurationSec": 152.93,
+  "voice": "aura-2-asteria-en",
+  "scenes": {
+    "act1": {
+      "id": "act1",
+      "durationInFrames": 897,
+      "durationSec": 29.9,
+      "lines": [
+        {
+          "file": "vo/act1-1.wav",
+          "text": "When scammers steal $120,000 over instant bank rails, they split it across six mule hops and crypto bridges in under four minutes.",
+          "startSec": 0.4,
+          "startFrame": 12,
+          "seconds": 9.44,
+          "frames": 284
+        },
+        {
+          "file": "vo/act1-2.wav",
+          "text": "One-hop fraud rules go blind at hop two, while naive single-prompt agents choke on raw logs and freeze 42 innocent nurses' paychecks.",
+          "startSec": 10.18,
+          "startFrame": 305,
+          "seconds": 8.96,
+          "frames": 269
+        },
+        {
+          "file": "vo/act1-3.wav",
+          "text": "MuleTrace is a speculative branch-and-backtrack reasoning architecture that catches split scam money before finality with zero false freezes.",
+          "startSec": 19.48,
+          "startFrame": 584,
+          "seconds": 9.52,
+          "frames": 286
+        }
+      ]
+    },
+    "act2": {
+      "id": "act2",
+      "durationInFrames": 990,
+      "durationSec": 33,
+      "lines": [
+        {
+          "file": "vo/act2-1.wav",
+          "text": "Through Zetaris federated SQL, parallel Nemotron 30B scouts trace all three outgoing branches across wire, device, and KYC schemas.",
+          "startSec": 0.45,
+          "startFrame": 14,
+          "seconds": 10.68,
+          "frames": 321
+        },
+        {
+          "file": "vo/act2-2.wav",
+          "text": "At hop two, our Nemotron 120B pruning critic spots Bayview Clinic's verified 42-nurse payroll pool, prunes that branch, and backtracks.",
+          "startSec": 11.47,
+          "startFrame": 344,
+          "seconds": 9.24,
+          "frames": 278
+        },
+        {
+          "file": "vo/act2-3.wav",
+          "text": "Reallocated scouts chase Branches A and C to hop six, catching $101,500 re-converging at a Kraken bridge with 94 seconds to spare.",
+          "startSec": 21.05,
+          "startFrame": 631,
+          "seconds": 11.04,
+          "frames": 332
+        }
+      ]
+    },
+    "act3": {
+      "id": "act3",
+      "durationInFrames": 1001,
+      "durationSec": 33.367,
+      "lines": [
+        {
+          "file": "vo/act3-1.wav",
+          "text": "Why do linear agents fail deep chases? Dumping raw ledger tables across six hops explodes context past 12,500 tokens and misses the deadline.",
+          "startSec": 0.45,
+          "startFrame": 14,
+          "seconds": 10.72,
+          "frames": 322
+        },
+        {
+          "file": "vo/act3-2.wav",
+          "text": "MuleTrace runs all four Meterless Engines: Scout Intent scores urgency, and an optimistic-locked World Model tracks tainted dollar conservation.",
+          "startSec": 11.51,
+          "startFrame": 345,
+          "seconds": 9.24,
+          "frames": 278
+        },
+        {
+          "file": "vo/act3-3.wav",
+          "text": "Meanwhile, Markovian compresses every hop into a compact capsule under 210 tokens, slashing total prompt tokens by 92.7%.",
+          "startSec": 21.09,
+          "startFrame": 633,
+          "seconds": 11.36,
+          "frames": 341
+        }
+      ]
+    },
+    "act4": {
+      "id": "act4",
+      "durationInFrames": 1020,
+      "durationSec": 34,
+      "lines": [
+        {
+          "file": "vo/act4-1.wav",
+          "text": "After solving Ring-77 once, MuleTrace commits its headless Nox emulator and 19-second split cadence into H-MEM.",
+          "startSec": 0.45,
+          "startFrame": 14,
+          "seconds": 7.96,
+          "frames": 239
+        },
+        {
+          "file": "vo/act4-2.wav",
+          "text": "When the same ring strikes a second retiree, H-MEM skips four intermediate hops and locks $79,900 in just two hops and 48 seconds.",
+          "startSec": 8.75,
+          "startFrame": 262,
+          "seconds": 11.44,
+          "frames": 344
+        },
+        {
+          "file": "vo/act4-3.wav",
+          "text": "And when stolen funds enter a licensed $1.4M title-escrow pool at 64% confidence, MuleTrace abstains from a full freeze and places a surgical $64,000 sub-ledger hold.",
+          "startSec": 20.53,
+          "startFrame": 616,
+          "seconds": 12.56,
+          "frames": 377
+        }
+      ]
+    },
+    "act5": {
+      "id": "act5",
+      "durationInFrames": 728,
+      "durationSec": 24.267,
+      "lines": [
+        {
+          "file": "vo/act5-1.wav",
+          "text": "Meterless Nightshift powers the entire loop locally, pairing Nemotron 30B for fast hop scouting with Nemotron 120B for pruning and FinCEN freeze orders.",
+          "startSec": 0.45,
+          "startFrame": 14,
+          "seconds": 10.88,
+          "frames": 327
+        },
+        {
+          "file": "vo/act5-2.wav",
+          "text": "Across five laundering benchmarks and ten conformance tests, MuleTrace recovers $617,800 before finality with zero innocent accounts frozen.",
+          "startSec": 11.67,
+          "startFrame": 350,
+          "seconds": 11.48,
+          "frames": 345
+        }
+      ]
+    }
+  },
+  "order": [
+    "act1",
+    "act2",
+    "act3",
+    "act4",
+    "act5"
+  ]
+}
